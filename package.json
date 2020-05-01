@@ -1,0 +1,57 @@
+{
+  "name": "readcast-test-bot",
+  "version": "1.0.0",
+  "description": "ReadCast Test Bot",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">= 6.1 < 11.0"
+  },
+  "peerDependencies": {
+    "knex": "*"
+  },
+  "dependencies": {
+    "@botpress/channel-web": "^10.51.10",
+    "axios": "^0.19.2",
+    "botpress": "^10.51.10",
+    "lodash": "^4.17",
+    "luxon": "^1.23.0",
+    "moment": "^2.20.1",
+    "typescript": "^3.8.3",
+    "utility-types": "^3.10.0",
+    "uuid": "^7.0.3"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^25.2.1",
+    "@types/lodash": "^4.14.149",
+    "@types/luxon": "^1.22.0",
+    "@types/node": "^13.11.1",
+    "@types/uuid": "^7.0.3",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "jest": "^25.3.0",
+    "prettier": "^2.0.4",
+    "reflect-metadata": "^0.1.13",
+    "ts-jest": "^25.3.1",
+    "ts-node": "^8.8.2",
+    "tsconfig-paths": "^3.9.0"
+  },
+  "scripts": {
+    "pre-build": "rm -rf dist",
+    "build": "npm run pre-build && tsc",
+    "migrate": "knex migrate:up ./dist/migrations",
+    "start": "rm -rf _data && npm run build && npm run migrate && botpress start ./dist",
+    "startDist": "botpress start ./dist",
+    "ghost-sync": "botpress ghost-sync",
+    "format": "prettier --write \"(src|test)/**/*.ts\"",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
+  },
+  "author": "Botpress, Inc.",
+  "license": "Botpress Proprietary License"
+}
