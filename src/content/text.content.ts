@@ -22,6 +22,9 @@ export class TextContent {
     static readonly GREETINGS: string;
 
     @ContentId()
+    static readonly BAD_ANSWER: string;
+
+    @ContentId()
     static readonly TODAY_RATES: string;
 
     @ContentId()
@@ -39,6 +42,12 @@ export class TextContent {
     @ContentData(() => TextContent.GREETINGS)
     greetings: TextContentFormData = {
         text: 'Greetings folks.',
+        typing: false
+    };
+
+    @ContentData(() => TextContent.BAD_ANSWER)
+    badAnswer: TextContentFormData = {
+        text: 'Bad one, you should use one of generated quick replies.',
         typing: false
     };
 

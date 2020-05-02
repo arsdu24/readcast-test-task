@@ -6,13 +6,12 @@
   "engines": {
     "node": ">= 6.1 < 11.0"
   },
-  "peerDependencies": {
-    "knex": "*"
-  },
   "dependencies": {
+    "@botpress/channel-telegram": "^10.51.10",
     "@botpress/channel-web": "^10.51.10",
     "axios": "^0.19.2",
     "botpress": "^10.51.10",
+    "del": "^5.1.0",
     "lodash": "^4.17",
     "luxon": "^1.23.0",
     "moment": "^2.20.1",
@@ -42,8 +41,7 @@
   "scripts": {
     "pre-build": "rm -rf dist",
     "build": "npm run pre-build && tsc",
-    "migrate": "knex migrate:up ./dist/migrations",
-    "start": "rm -rf _data && npm run build && npm run migrate && botpress start ./dist",
+    "start": "rm -rf _data && npm run build && botpress start ./dist",
     "startDist": "botpress start ./dist",
     "ghost-sync": "botpress ghost-sync",
     "format": "prettier --write \"(src|test)/**/*.ts\"",

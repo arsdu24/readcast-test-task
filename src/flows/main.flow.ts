@@ -53,7 +53,7 @@ export class MainFlow {
     [MainFlowNodesEnum.EXCHANGE_RATE_VARIATION]: string = v4();
 
     @FlowNode()
-    @OnEnter(Say(TextContent.GREETINGS))
+    @OnEnter(Say(TextContent.BAD_ANSWER))
     @Next(MainFlowNodesEnum.SHOW_OPERATIONS)
     [MainFlowNodesEnum.BAD_ANSWER]: string = v4();
 

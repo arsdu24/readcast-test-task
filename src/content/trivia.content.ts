@@ -75,8 +75,15 @@ export class TriviaContent {
     @ContentRenderer()
     render(data: TriviaContentFormData): any {
         return {
+            type: 'edited_message_text',
             text: data.question,
+            question: data.question,
             quick_replies: data.choices.map(({ value, text }) => `<${value}> ${text}`),
+            reply_markup: {
+                inline_keyboard: [
+                    data.choices.map(({ value: callback_data, text }) => ({ text, callback_data }))
+                ]
+            },
             typing: data.typing || '2s'
         }
     }
