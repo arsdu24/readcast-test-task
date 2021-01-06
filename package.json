@@ -9,7 +9,7 @@
   "dependencies": {
     "@botpress/channel-telegram": "^10.51.10",
     "@botpress/channel-web": "^10.51.10",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "botpress": "^10.51.10",
     "del": "^5.1.0",
     "lodash": "^4.17",
